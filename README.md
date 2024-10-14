@@ -1,98 +1,34 @@
-# Heart Disease Prediction Web Application
+# Telecom Customer Churn Analysis
 
-This project is a web application that predicts the probability of heart disease based on patient data. The system is built using Python, Flask for the server, and a machine learning model for prediction.
+This repository contains a project focused on analyzing and predicting customer churn in the telecommunications industry. The analysis was performed using a dataset from Kaggle ([Telecom Customer Churn](https://www.kaggle.com/datasets/abhinav89/telecom-customer)). The project involves data exploration, feature engineering, model building, and evaluation, as well as a simple local server application for deploying the model.
 
+## Project Structure
 
-## Project structure
+The repository is organized into the following folders:
 
-```
-├── app/
-│   ├── __init__.py              # Initialize the aplication
-│   ├── templates/
-│   │   └── index.html           # The front-end page where users input patient data
-│   ├── static           
-|   │   └── script.html          # Front-end script for the webpage
-|   |   └── css.html             # Front-end styles for the webpage
-|   ├── database.py              # Module of functions for database management
-|   ├── routes.py                # Definitions of the api routes
-|   └── config.pkl               # Configurations for the app
-├── data/                        # Contains datasets used for model training
-├── model/
-│   ├── model_class.py           # Class for model training, saving, loading, evaluating, and predicting
-│   ├── model.pkl                # The saved trained model (created after training)
-|   └── config.pkl               # The parameters of the model
-├── notebook/
-│   ├── EDA.ipynb                # Exploratory Data Analysis
-│   └── model_selection.ipynb    # Notebooks for model selection and testing
-├── venvHeatDisease/             # Virtual environment for project dependencies
-├── database                     # A copy of my database used for this project (MySQL)
-├── .env                         # Environment variables (database credentials, API keys, etc.)
-├── requirements.txt             # List of dependencies
-└── run                          # File to start the server and initialize the app
-```
-## How to Run the Project
+- **app/**: Contains the application code, including `__init__.py`, configuration files, and route definitions for running the model on a local server.
+  
+- **data/**: Includes the project dataset, with both raw and processed data files. Data cleaning and preprocessing steps are applied to the raw data in this folder.
 
-1. **Activate Virtual Environment:**
+- **model/**: Contains the code for creating and managing the XGBoost model, including scripts for feature engineering, training, and evaluation.
 
-   If you haven't already, activate the virtual environment:
+- **notebook/**: Contains Jupyter notebooks with the main analyses, divided into three parts:
+  1. **Data Exploration and Cleaning**: Initial data exploration and cleaning, such as handling missing values, outliers, and variable distributions.
+  2. **Business-Driven Data Analysis**: Deeper data analysis to answer business-related questions and explore correlations between variables.
+  3. **Modeling and Evaluation**: Comparison of machine learning models, hyperparameter tuning, and a profit simulation to assess the business impact of the model.
 
-   - On Mac/Linux:
-     ```bash
-     source venvHeatDisease/bin/activate
-     ```
+## Notebooks Overview
 
-   - On Windows:
-     ```bash
-     venvHeatDisease\Scripts\activate
-     ```
+1. **Data Exploration and Cleaning**: Examines variable distributions and performs data cleaning, including handling missing values, duplicates, and outliers.
 
-2. **Set Environment Variables:**
+2. **Business-Driven Data Analysis**: Addresses specific business questions, explores correlations, and includes other exploratory analyses to guide the model-building process.
 
-   Make sure your `.env` file contains the necessary environment variables, such as database credentials and any API keys.
+3. **Modeling and Evaluation**: Builds and compares different machine learning models, with a focus on XGBoost. Hyperparameter tuning is performed, and a profit simulation is included to evaluate the model's potential impact on business decisions.
 
-3. **Database Setup:**
+## Local Server Application
 
-A copy of the MySQL database is provided in the `databases` folder as `database_backup.sql`. To restore the database, use the following command:
+A simple local server application is included to deploy the model, allowing for easy integration into a business environment where predictions can be made on new data.
 
-```bash
-mysql -u root -p database_heart_disease < /databases/database_backup.sql
-```
-4. **Run the Server:**
+---
 
-   Start the server by executing the `run` file in the project root:
-
-   ```bash
-   python run
-   ```
-This will initialize the Flask app located in the app directory.
-
-5. **Access the Application:**
-
-   Open your browser and navigate to http://localhost:5000/templates/index.html. You will see the web interface where you can input patient data and receive a heart disease probability prediction.
-
-## Model Information
-
-The `model` folder contains the machine learning model used for prediction and the script to train the model. The model class has the following methods:
-
-- **fit_model**: Used to train the model on new data.
-- **save_model**: Saves the trained model to a file (`model.pkl`).
-- **load_model**: Loads a saved model from a file.
-- **evaluate_model**: Evaluates the model performance on a dataset.
-- **predict_heart_disease**: Predicts the probability of heart disease based on patient data.
-
-## Notebooks
-
-In the `notebook` directory, there are two Jupyter notebooks:
-
-- **EDA.ipynb**: Contains the exploratory data analysis used to understand the dataset and relationships between variables.
-- **Model development.ipynb**: Contains the process of testing and selecting the best machine learning model for predicting heart disease.
-
-## Future Steps
-
-- Improve model accuracy by gathering more data and tuning hyperparameters.
-- Refine the feature selection process to ensure the model only uses the most important variables.
-- Deploy the application to a cloud platform for wider access.
-
-## Conclusion
-
-This project demonstrates a full pipeline from data exploration and model selection to building a web application that predicts the probability of heart disease based on patient input.
+Feel free to explore the folders and notebooks for a comprehensive view of the analysis and model development process. Contributions and suggestions are welcome!
